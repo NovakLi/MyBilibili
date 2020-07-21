@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyBilibili</string>
+    <string name="activity_main_rb1">首页</string>
+    <string name="activity_main_rb2">频道</string>
+    <string name="activity_main_rb3">动态</string>
+    <string name="activity_main_rb4">会员购</string>
+    <string name="activity_main_rb5">我的</string>
+    <string name="search_hint">请输入搜索内容</string>
+</resources>
