@@ -135,6 +135,13 @@ public class HomeBean {
             private String danmaku;
             private String up;
 
+            public BodyBean(String title, String cover, String play, String danmaku) {
+                this.title = title;
+                this.cover = cover;
+                this.play = play;
+                this.danmaku = danmaku;
+            }
+
             public String getTitle() {
                 return title;
             }

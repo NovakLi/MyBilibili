@@ -57,11 +57,9 @@ public class SearchActivity extends BaseActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() <= 0) {
-//                    tvSearch.setBackgroundResource(R.drawable.search_noinput);
                     tvSearch.setTextColor(getResources().getColor(R.color.search_cancel));
                     tvSearch.setEnabled(false);
                 } else {
-//                    tvSearch.setBackgroundResource(R.drawable.search_input);
                     tvSearch.setTextColor(getResources().getColor(R.color.search_input));
                     tvSearch.setEnabled(true);
                 }

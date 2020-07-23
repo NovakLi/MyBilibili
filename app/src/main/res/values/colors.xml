@@ -12,4 +12,6 @@
     <color name="search_cancel">#666666</color>
     <color name="search_input">#E91E63</color>
     <color name="search_noinput">#E91E63</color>
+    <color name="bg_item_home2">#eeeeee</color>
+    <color name="home2_title">#111111</color>
 </resources>

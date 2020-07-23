@@ -90,12 +90,12 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-    @Subscribe()
-    public void getEventMessage(EventMessage message) {
-        switch (message.getType()) {
-            case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, meFragment);
-                rbMe.setChecked(true);
-        }
-    }
+//    @Subscribe()
+//    public void getEventMessage(EventMessage message) {
+//        switch (message.getType()) {
+//            case 0:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, meFragment);
+//                rbMe.setChecked(true);
+//        }
+//    }
 }
