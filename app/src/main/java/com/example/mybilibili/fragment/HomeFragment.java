@@ -24,6 +24,8 @@ import com.example.mybilibili.fragment.homefragment.HomeTwoFragment;
 import com.example.mybilibili.utils.DimensionUtils;
 import com.google.android.material.tabs.TabLayout;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -135,7 +137,7 @@ public class HomeFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.circl_login:
-                getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fl_home, meFragment).commit();
+//                EventBus.getDefault().register();
                 break;
             case R.id.home_game:
                 break;

@@ -8,11 +8,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mybilibili.BaseActivity;
 import com.example.mybilibili.R;
+import com.example.mybilibili.contact.EventMessage;
 import com.example.mybilibili.fragment.ChannelFragment;
 import com.example.mybilibili.fragment.DynamicFragment;
 import com.example.mybilibili.fragment.HomeFragment;
 import com.example.mybilibili.fragment.MeFragment;
 import com.example.mybilibili.fragment.VipFragment;
+
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 
@@ -86,5 +89,13 @@ public class MainActivity extends BaseActivity {
                 transaction.commit();
             }
         });
+    }
+    @Subscribe()
+    public void getEventMessage(EventMessage message) {
+        switch (message.getType()) {
+            case 0:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, meFragment);
+                rbMe.setChecked(true);
+        }
     }
 }
