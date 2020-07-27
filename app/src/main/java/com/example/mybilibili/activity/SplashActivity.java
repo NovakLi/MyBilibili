@@ -2,11 +2,17 @@ package com.example.mybilibili.activity;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.example.mybilibili.BaseActivity;
 import com.example.mybilibili.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 
@@ -15,24 +21,26 @@ public class SplashActivity extends BaseActivity {
     TextView tvSplashCount;
 
     private int seconds = 3;
-//    private Handler mhandler = new Handler() {
-//        @Override
-//        public void handleMessage(@NonNull Message msg) {
-//            super.handleMessage(msg);
-//            if (msg.what == 100) {
-//                if (seconds > 0) {
-//                    --seconds;
-//                    tvSplashCount.setText(seconds + "S");
-//                    mhandler.sendEmptyMessageDelayed(100, 1000);
-//                } else {
-//                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//                }
-//            }
-//        }
-//
-//    };
+    private Handler mhandler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 100) {
+                if (seconds > 0) {
+                    --seconds;
+                    tvSplashCount.setText(seconds + "S");
+                    mhandler.sendEmptyMessageDelayed(100, 1000);
+                } else {
+                    if(!isDestroyed()){
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            }
+        }
+
+    };
 
     @Override
     protected int getLayoutId() {
@@ -41,19 +49,20 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        CountDownTimer timer = new CountDownTimer(3400,1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                tvSplashCount.setText(millisUntilFinished / 1000 + "S");
-            }
 
-            @Override
-            public void onFinish() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }.start();
+//        CountDownTimer timer = new CountDownTimer(3400,1000) {
+//            @Override
+//            public void onTick(long millisUntilFinished) {
+//                tvSplashCount.setText(millisUntilFinished / 1000 + "S");
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        }.start();
 
         tvSplashCount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +76,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-//        mhandler.sendEmptyMessageDelayed(100, 1000);
+        mhandler.sendEmptyMessageDelayed(100, 1000);
     }
 }

@@ -67,4 +67,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.8.0'
     //gson
     implementation 'com.google.code.gson:gson:2.8.6'
+    //视频播放完整版
+    implementation 'com.shuyu:GSYVideoPlayer:7.1.4'
 }
